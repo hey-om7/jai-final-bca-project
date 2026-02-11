@@ -1,0 +1,196 @@
+
+
+
+
+
+
+
+/* PAGE WRAPPER (IMPORTANT) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* BIG IMAGE */
+/* .big_image {
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  margin-top: 60px;
+ padding-left: 10%;
+  align-self: center;
+} */
+
+.big_image {
+  width: 100%;
+  max-width: 1200px;   /* panoramic feel */
+  height: 500px;       /* banner height */
+  object-fit: cover;   /* crop nicely */
+  display: block;
+  margin: 60px auto 0; /* center horizontally */
+}
+
+
+
+
+
+
+
+
+.homepage {
+  min-height: 100vh;
+
+  background: linear-gradient(
+    to bottom,
+    #ddc9c9 0%,      /* very faint light */
+    #e6e6e6 25%,     /* soft gray */
+    #fceaf9 55%,     /* mid tone */
+    #aca7ff 75%,     /* darker */
+    #3f3849 100%     /* darkest bottom */
+  );
+
+  color: #111;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* IMAGE GRID */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 80%;
+  margin-top: 60px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* HEADING */
+h1 {
+  font-size: 3rem;      /* responsive size */
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* BUTTONS (OPTIONAL BUT RECOMMENDED) */
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+
+.hor1 {
+  width: 100%;
+  max-width: 1200px;   /* panoramic feel */
+  height: 300px;       /* banner height */
+  object-fit: cover;   /* crop nicely */
+  display: block;
+  margin: 20px auto 0; /* center horizontally */
+}
+.hor2 {
+  width: 100%;
+  max-width: 1300px;   /* panoramic feel */
+  height: 400px;       /* banner height */
+  object-fit: cover;   /* crop nicely */
+  display: block;
+  margin: 20px auto 0; /* center horizontally */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER STYLES */
+
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 28px 15px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.brand {
+  font-weight: 600;
+  color: #fff;
+}
+
+.socials {
+  margin: 14px 0;
+}
+
+.socials a {
+  font-size: 18px;
+  margin: 0 10px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #38bdf8;
+}
+
+.copy {
+  font-size: 12px;
+  color: #777;
+}
+
+
+
+
+
+
+
+
+
+.home-page-container{
+   background: linear-gradient(
+    to bottom,
+    #f0f0f1 0%,      
+    #e9e5e5 25%,     
+    #b9b9b9 55%,     
+    #f5f4f4 75%,     
+    #ffffff 100%     
+  );
+
+}   

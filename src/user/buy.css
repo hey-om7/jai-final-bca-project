@@ -1,0 +1,98 @@
+.buy-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.buy-card {
+  background: white;
+  width: 360px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.buy-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.product-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-price {
+  color: #777;
+  font-size: 14px;
+}
+
+.qty-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.qty-section label {
+  font-size: 14px;
+  color: #555;
+}
+
+.qty-section input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.price-box {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.price-box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.price-box .highlight {
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #1a73e8, #004aad);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.green{
+  color: #2e7d32;
+  font-weight: bold;
+}

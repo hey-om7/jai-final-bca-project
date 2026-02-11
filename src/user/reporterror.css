@@ -1,0 +1,102 @@
+.report-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.report-container {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+}
+
+.report-title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.report-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.report-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.report-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #e0c097;
+  letter-spacing: 1px;
+}
+
+.report-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.email-text {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.email-text a {
+  color: #e0c097;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.email-text a:hover {
+  text-decoration: underline;
+}
+
+.admin-contact {
+  margin-top: 70px;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-contact h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: #e0c097;
+}
+
+.admin-contact p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.admin-email {
+  margin-top: 10px;
+  font-size: 1.05rem;
+}

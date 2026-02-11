@@ -1,0 +1,81 @@
+.know-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 100px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.know-container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.know-title {
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.know-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 70px;
+}
+
+.know-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+  text-align: left;
+}
+
+.know-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.know-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #e0c097;
+  letter-spacing: 1px;
+}
+
+.know-card p {
+  font-size: 1rem;
+  line-height: 1.9;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.contact-text {
+  margin-top: 25px;
+  font-size: 1rem;
+}
+
+.contact-text a {
+  color: #e0c097;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .know-card {
+    padding: 35px 25px;
+  }
+
+  .know-title {
+    font-size: 2.5rem;
+  }
+}

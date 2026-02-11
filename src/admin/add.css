@@ -1,0 +1,79 @@
+.add-product-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.add-product-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 35px;
+  width: 380px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.add-product-card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.add-product-form label {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.add-product-form input,
+.add-product-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.add-product-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.radio-group {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.add-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}

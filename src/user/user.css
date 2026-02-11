@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+.big_image{
+  width: 100%;     /* full horizontal screen */
+  height: auto;     /* keeps image ratio */
+  display: block;   /* removes small white gap */
+}
+
+

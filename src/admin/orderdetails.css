@@ -1,0 +1,67 @@
+.order-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.order-details-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  width: 430px;
+  padding: 35px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.order-details-card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.details-section {
+  margin-bottom: 30px;
+}
+
+.details-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 6px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.value {
+  min-width: 180px;
+  text-align: right;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Empty space styling */
+.placeholder {
+  height: 18px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.25);
+}
