@@ -11,7 +11,7 @@ export function HomePage() {
         <div className="hero-content">
           <h1 className="hero-title">Wrap Yourself in <br /> <span className="highlight">Pure Luxury</span></h1>
           <p className="hero-subtitle">Experience the softness of premium cotton towels, crafted for your ultimate comfort and style.</p>
-          <Link to="/products" className="primary-btn">
+          <Link to="/categories" className="primary-btn">
             Shop Collection <FaArrowRight style={{ marginLeft: '8px' }} />
           </Link>
         </div>
