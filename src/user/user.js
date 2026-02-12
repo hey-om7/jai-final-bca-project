@@ -1,6 +1,7 @@
 import { HomePage } from "./home_page";
 import { CategoriesPage } from "./categories_page";
 import { AboutUs } from "./aboutus";
+import { ContactUs } from "./contact";
 import ProductCards from "./products";
 import ProductDetail from "./product_detail";
 import { Route, Routes } from "react-router-dom";
@@ -19,6 +20,7 @@ export function User() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/categories" element={<CategoriesPage />} />
 
         {/* Dynamic Routes */}

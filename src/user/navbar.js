@@ -32,8 +32,8 @@ function NavBar() {
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/products">Collection</Link></li>
-            <li><Link to="/reporterror">Contact</Link></li>
+            <li><Link to="/categories">Collection</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
