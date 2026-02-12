@@ -3,14 +3,14 @@
 
 
 // import Admin from './admin/admin';
-import User from './user/user';
+import { User } from './user/user';
 //import Login from "./login/login";
 
 function App() {
-  
+
   return (
     <div>
-      <User/>
+      <User />
       {/* <Admin /> */}
       {/* <Login /> */}
     </div>
