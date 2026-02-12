@@ -135,6 +135,13 @@ const importData = async () => {
         await User.deleteMany();
         await Order.deleteMany();
 
+        await User.create({
+            name: 'Admin User',
+            email: 'admin@example.com',
+            password: '123devpassword', // This will be hashed by pre-save hook
+            isAdmin: true
+        });
+
         await Product.insertMany(products);
 
         console.log('Data Imported!');

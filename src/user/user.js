@@ -14,6 +14,7 @@ import UserNavbar from "./navbar";
 import OrderCompleted from "./order_completed";
 import { Login } from "./login";
 import { Register } from "./register";
+import { AdminDashboard } from "../admin/AdminDashboard";
 
 export function User() {
   return (
@@ -35,6 +36,7 @@ export function User() {
         <Route path="/order-completed" element={<OrderCompleted />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </div>
   );

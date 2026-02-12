@@ -6,6 +6,7 @@ import "./navbar.css";
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +46,11 @@ function NavBar() {
           <Link to="/login" className="icon-btn" aria-label="Account">
             <FaUser />
           </Link>
+          {userInfo && userInfo.isAdmin && (
+            <Link to="/admin" className="icon-btn" aria-label="Admin">
+              Admin
+            </Link>
+          )}
           <button className="icon-btn cart-btn" aria-label="Cart">
             <FaShoppingBag />
             <span className="cart-count">0</span>
