@@ -1,17 +1,41 @@
 import "./products.css";
 import { Link, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import { products, categories } from "./data";
+import { categories } from "./data"; // Keep categories static for now or fetch if needed
+import { useState, useEffect } from "react";
 
 function ProductCards() {
   const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:5001/api/products');
+        const data = await response.json();
+        setProducts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   // Find category and its products
   const category = categories.find(c => c.id === parseInt(categoryId));
+  // Filter fetched products by categoryId
   const categoryProducts = products.filter(p => p.categoryId === parseInt(categoryId));
 
   if (!category) {
     return <div className="cards-container"><h2>Category not found</h2></div>;
+  }
+
+  if (loading) {
+    return <div className="cards-container"><h2>Loading products...</h2></div>;
   }
 
   return (
@@ -52,5 +76,6 @@ function ProductCards() {
     </div>
   );
 }
+
 
 export default ProductCards;
