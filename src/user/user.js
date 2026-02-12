@@ -9,6 +9,8 @@ import { Cart } from "./cart";
 import UserNavbar from "./navbar";
 
 
+import OrderCompleted from "./order_completed";
+
 export function User() {
   return (
     <div>
@@ -24,6 +26,7 @@ export function User() {
         <Route path="/buy" element={<Buy />} />
         <Route path="/checklogin" element={<CheckLogin />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/order-completed" element={<OrderCompleted />} />
       </Routes>
     </div>
   );

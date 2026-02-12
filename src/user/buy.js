@@ -114,12 +114,13 @@
 
 
 
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./buy.css";
 
 export function Buy() {
   const location = useLocation();
+  const navigate = useNavigate(); // Hook for navigation
   const state = location.state || {};
 
   const [qty, setQty] = useState(1);
@@ -127,6 +128,11 @@ export function Buy() {
   const price = state.price || 0;
   const money = qty * price;
   const tokenAmount = Math.round(money * 0.4);
+
+  const handlePayNow = () => {
+    // Navigate to Order Completed page
+    navigate("/order-completed");
+  };
 
   return (
     <div className="buy-page">
@@ -156,11 +162,11 @@ export function Buy() {
 
           <div className="row highlight">
             <span>Token Amount (40%)</span><div className="green">
-            <span>₹{tokenAmount}</span></div>
+              <span>₹{tokenAmount}</span></div>
           </div>
         </div>
 
-        <button className="pay-btn">PAY NOW</button>
+        <button className="pay-btn" onClick={handlePayNow}>PAY NOW</button>
       </div>
     </div>
   );

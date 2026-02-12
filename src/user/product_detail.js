@@ -39,12 +39,7 @@ function ProductDetail() {
       <button
         className="buy-now"
         onClick={() =>
-          navigate("/checklogin", {
-            state: {
-              price: product.price,
-              title: product.title,
-            },
-          })
+          navigate("/order-completed")
         }
       >
         Buy Now
