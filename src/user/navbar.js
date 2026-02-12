@@ -18,7 +18,7 @@ function NavBar() {
   const isHome = location.pathname === "/";
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${isHome ? "home-nav" : ""}`}>
+    <nav className={`custom-navbar ${scrolled ? "scrolled" : ""} ${isHome ? "home-nav" : ""}`}>
       <div className="nav-container">
         {/* Left - Logo */}
         <div className="nav-left">
