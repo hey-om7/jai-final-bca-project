@@ -183,3 +183,41 @@
     justify-self: end;
   }
 }
+
+/* Logout Dropdown */
+.profile-menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logout-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  min-width: 120px;
+  z-index: 1001;
+  margin-top: 10px;
+}
+
+.logout-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-dropdown button:hover {
+  background-color: #f8f9fa;
+  color: #000;
+}
