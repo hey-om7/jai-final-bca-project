@@ -12,6 +12,8 @@ import UserNavbar from "./navbar";
 
 
 import OrderCompleted from "./order_completed";
+import { Login } from "./login";
+import { Register } from "./register";
 
 export function User() {
   return (
@@ -31,6 +33,8 @@ export function User() {
         <Route path="/checklogin" element={<CheckLogin />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order-completed" element={<OrderCompleted />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

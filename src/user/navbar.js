@@ -42,7 +42,7 @@ function NavBar() {
           <button className="icon-btn" aria-label="Search">
             <FaSearch />
           </button>
-          <Link to="/log" className="icon-btn" aria-label="Account">
+          <Link to="/login" className="icon-btn" aria-label="Account">
             <FaUser />
           </Link>
           <button className="icon-btn cart-btn" aria-label="Cart">
