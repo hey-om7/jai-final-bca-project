@@ -15,6 +15,7 @@ import OrderCompleted from "./order_completed";
 import { Login } from "./login";
 import { Register } from "./register";
 import { AdminDashboard } from "../admin/AdminDashboard";
+import Feedback from "./Feedback";
 
 export function User() {
   return (
@@ -37,6 +38,7 @@ export function User() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </div>
   );

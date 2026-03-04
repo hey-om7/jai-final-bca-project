@@ -12,6 +12,7 @@ export default function Orders() {
       try {
         const userInfoRaw = localStorage.getItem("userInfo");
         const userInfo = userInfoRaw ? JSON.parse(userInfoRaw) : null;
+
         const response = await fetch("http://localhost:5001/api/orders", {
           headers: {
             Authorization: `Bearer ${userInfo?.token}`,
@@ -38,8 +39,7 @@ export default function Orders() {
   if (loading) {
     return (
       <div className="orders-page">
-        <h1 className="orders-title">Orders</h1>
-        <p>Loading orders...</p>
+        <h1 className="orders-title">Loading Dashboard...</h1>
       </div>
     );
   }
@@ -47,7 +47,7 @@ export default function Orders() {
   if (error) {
     return (
       <div className="orders-page">
-        <h1 className="orders-title">Orders</h1>
+        <h1 className="orders-title">Dashboard Error</h1>
         <p>Error: {error}</p>
       </div>
     );
@@ -55,7 +55,8 @@ export default function Orders() {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      {/* ORDERS SECTION */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
         <h2>Orders</h2>
       </div>
 

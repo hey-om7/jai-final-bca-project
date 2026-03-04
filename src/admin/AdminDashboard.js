@@ -3,6 +3,7 @@ import { UserList } from "./UserList";
 import { ProductList } from "./ProductList";
 import { ProductEdit } from "./ProductEdit";
 import Orders from "./orders";
+import Feedbacks from "./Feedbacks";
 import { useNavigate } from "react-router-dom";
 import "./admin.css";
 
@@ -40,6 +41,12 @@ export function AdminDashboard() {
                 >
                     Orders
                 </button>
+                <button
+                    className={activeTab === "feedbacks" ? "active" : ""}
+                    onClick={() => { setActiveTab("feedbacks"); setEditingProduct(null); }}
+                >
+                    Feedbacks
+                </button>
             </div>
             <div className="admin-content">
                 {activeTab === "users" && <UserList />}
@@ -50,6 +57,7 @@ export function AdminDashboard() {
                     <ProductEdit product={editingProduct} onCancel={() => setEditingProduct(null)} />
                 )}
                 {activeTab === "orders" && <Orders />}
+                {activeTab === "feedbacks" && <Feedbacks />}
             </div>
         </div>
     );
