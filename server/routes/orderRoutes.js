@@ -35,10 +35,22 @@ router.get(
     admin,
     async (req, res) => {
         try {
+            const Address = require('../models/Address');
             const orders = await Order.find({})
                 .populate('userId', 'id name email')
                 .populate('productId', 'id title price');
-            res.json(orders);
+
+            // Attach address info for each order's user
+            const ordersWithAddress = await Promise.all(
+                orders.map(async (order) => {
+                    const address = order.userId
+                        ? await Address.findOne({ user: order.userId._id })
+                        : null;
+                    return { ...order.toObject(), address };
+                })
+            );
+
+            res.json(ordersWithAddress);
         } catch (error) {
             console.error("Error fetching orders:", error);
             res.status(500).json({ message: "Server Error" });

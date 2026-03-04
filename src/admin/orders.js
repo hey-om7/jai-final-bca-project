@@ -70,6 +70,7 @@ export default function Orders() {
               <th>User Name</th>
               <th>Product</th>
               <th>Quantity</th>
+              <th>Shipping Address</th>
               <th>Date</th>
               <th>Total Price</th>
             </tr>
@@ -81,6 +82,11 @@ export default function Orders() {
                 <td>{order.userId ? order.userId.name : "Unknown User"}</td>
                 <td>{order.productId ? order.productId.title : "Unknown Product"}</td>
                 <td>{order.quantity}</td>
+                <td style={{ fontSize: '0.85rem', lineHeight: '1.5' }}>
+                  {order.address
+                    ? `${order.address.addressLine}, ${order.address.city}, ${order.address.pincode}, ${order.address.country}`
+                    : 'N/A'}
+                </td>
                 <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td>₹{order.totalPrice}</td>
               </tr>
