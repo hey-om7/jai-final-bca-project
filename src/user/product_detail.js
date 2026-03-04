@@ -45,26 +45,17 @@ function ProductDetail() {
 
   const handleBuyNow = async () => {
     try {
+      const userInfoRaw = localStorage.getItem("userInfo");
+      const userInfo = userInfoRaw ? JSON.parse(userInfoRaw) : null;
+
+      if (!userInfo || !userInfo.token) {
+        alert("You must be logged in to place an order.");
+        return;
+      }
+
       const orderData = {
-        orderItems: [
-          {
-            title: product.title,
-            qty: 1,
-            image: product.image,
-            price: product.price,
-            product: product._id
-          }
-        ],
-        shippingAddress: {
-          address: '123 Test St',
-          city: 'Test City',
-          postalCode: '123456',
-          country: 'Test Country'
-        },
-        paymentMethod: 'PayPal',
-        itemsPrice: product.price,
-        taxPrice: 0,
-        shippingPrice: 0,
+        productId: product._id,
+        quantity: 1,
         totalPrice: product.price
       };
 
@@ -72,6 +63,7 @@ function ProductDetail() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${userInfo.token}`
         },
         body: JSON.stringify(orderData),
       });
@@ -79,7 +71,8 @@ function ProductDetail() {
       if (response.ok) {
         navigate("/order-completed");
       } else {
-        alert("Failed to place order");
+        const errorData = await response.json();
+        alert(`Failed to place order: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error placing order:", error);

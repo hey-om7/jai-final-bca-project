@@ -49,9 +49,9 @@ function NavBar() {
 
         {/* Right - Icons */}
         <div className="nav-right">
-          <button className="icon-btn" aria-label="Search">
+          {/* <button className="icon-btn" aria-label="Search">
             <FaSearch />
-          </button>
+          </button> */}
           {userInfo ? (
             <div className="profile-menu-container">
               <button
@@ -77,10 +77,6 @@ function NavBar() {
               <FaUser />
             </Link>
           )}
-          <button className="icon-btn cart-btn" aria-label="Cart">
-            <FaShoppingBag />
-            <span className="cart-count">0</span>
-          </button>
         </div>
       </div>
     </nav>

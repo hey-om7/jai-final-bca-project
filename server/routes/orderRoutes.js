@@ -1,34 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
+const { protect, admin } = require('../middleware/authMiddleware');
 
 // @desc    Create new order
 // @route   POST /api/orders
-// @access  Public (for now)
-router.post('/', async (req, res) => {
-    const {
-        orderItems,
-        shippingAddress,
-        paymentMethod,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice
-    } = req.body;
+// @access  Private
+router.post('/', protect, async (req, res) => {
+    const { productId, quantity, totalPrice } = req.body;
 
-    if (orderItems && orderItems.length === 0) {
+    if (!productId || !quantity || !totalPrice) {
         res.status(400);
-        throw new Error('No order items');
+        throw new Error('Please provide all required fields');
         return;
     } else {
         const order = new Order({
-            orderItems,
-            user: req.user ? req.user._id : null, // Handle guest checkout
-            shippingAddress,
-            paymentMethod,
-            itemsPrice,
-            taxPrice,
-            shippingPrice,
+            userId: req.user._id,
+            productId,
+            quantity,
             totalPrice
         });
 
@@ -36,5 +25,51 @@ router.post('/', async (req, res) => {
         res.status(201).json(createdOrder);
     }
 });
+
+// @desc    Get all orders
+// @route   GET /api/orders
+// @access  Private/Admin
+router.get(
+    '/',
+    protect,
+    admin,
+    async (req, res) => {
+        try {
+            const orders = await Order.find({})
+                .populate('userId', 'id name email')
+                .populate('productId', 'id title price');
+            res.json(orders);
+        } catch (error) {
+            console.error("Error fetching orders:", error);
+            res.status(500).json({ message: "Server Error" });
+        }
+    }
+);
+
+// @desc    Get order by ID
+// @route   GET /api/orders/:id
+// @access  Private/Admin
+router.get(
+    '/:id',
+    protect,
+    admin,
+    async (req, res) => {
+        try {
+            const order = await Order.findById(req.params.id)
+                .populate('userId', 'name email')
+                .populate('productId', 'title price image category');
+
+            if (order) {
+                res.json(order);
+            } else {
+                res.status(404);
+                throw new Error('Order not found');
+            }
+        } catch (error) {
+            console.error("Error fetching order by ID:", error);
+            res.status(500).json({ message: "Server Error" });
+        }
+    }
+);
 
 module.exports = router;

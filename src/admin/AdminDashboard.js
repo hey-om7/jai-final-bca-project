@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { UserList } from "./UserList";
 import { ProductList } from "./ProductList";
 import { ProductEdit } from "./ProductEdit";
+import Orders from "./orders";
 import { useNavigate } from "react-router-dom";
 import "./admin.css";
 
@@ -33,6 +34,12 @@ export function AdminDashboard() {
                 >
                     Products
                 </button>
+                <button
+                    className={activeTab === "orders" ? "active" : ""}
+                    onClick={() => { setActiveTab("orders"); setEditingProduct(null); }}
+                >
+                    Orders
+                </button>
             </div>
             <div className="admin-content">
                 {activeTab === "users" && <UserList />}
@@ -42,6 +49,7 @@ export function AdminDashboard() {
                 {activeTab === "products" && editingProduct && (
                     <ProductEdit product={editingProduct} onCancel={() => setEditingProduct(null)} />
                 )}
+                {activeTab === "orders" && <Orders />}
             </div>
         </div>
     );
