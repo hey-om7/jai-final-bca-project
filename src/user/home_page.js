@@ -80,8 +80,7 @@ export function HomePage() {
             <div className="link-group">
               <h4>Company</h4>
               <Link to="/about">About Us</Link>
-              <Link to="/products">Careers</Link>
-              <Link to="/reporterror">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </div>
             <div className="link-group">
               <h4>Support</h4>

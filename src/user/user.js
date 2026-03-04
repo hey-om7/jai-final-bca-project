@@ -16,6 +16,9 @@ import { Login } from "./login";
 import { Register } from "./register";
 import { AdminDashboard } from "../admin/AdminDashboard";
 import Feedback from "./Feedback";
+import { FAQ } from "./faq";
+import { Shipping } from "./shipping";
+import { Returns } from "./returns";
 
 export function User() {
   return (
@@ -38,7 +41,9 @@ export function User() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/returns" element={<Returns />} />
       </Routes>
     </div>
   );
