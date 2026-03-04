@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import "./orderdetails.css";
+import { useSearchParams, useNavigate, NavLink } from "react-router-dom";
 
 export default function OrderDetails() {
   const [searchParams] = useSearchParams();
   const orderId = searchParams.get("id");
+  const navigate = useNavigate();
 
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -45,88 +45,104 @@ export default function OrderDetails() {
 
   if (loading) {
     return (
-      <div className="order-details-page">
-        <div className="order-details-card">
-          <h1>Order Details</h1>
-          <p>Loading...</p>
-        </div>
+      <div>
+        <h2>Order Details</h2>
+        <p>Loading...</p>
       </div>
     );
   }
 
   if (error || !order) {
     return (
-      <div className="order-details-page">
-        <div className="order-details-card">
-          <h1>Order Details</h1>
-          <p className="error-text">Error: {error || "Order not found"}</p>
-        </div>
+      <div>
+        <h2>Order Details</h2>
+        <p style={{ color: "red" }}>Error: {error || "Order not found"}</p>
+        <button className="action-btn edit-btn" onClick={() => navigate(-1)}>Back</button>
       </div>
     );
   }
 
+  const sectionStyle = {
+    background: "white",
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+    marginBottom: "20px"
+  };
+
+  const rowStyle = {
+    display: "flex",
+    borderBottom: "1px solid #dee2e6",
+    padding: "12px 10px"
+  };
+
+  const labelStyle = {
+    fontWeight: "600",
+    width: "200px",
+    color: "#495057"
+  };
+
+  const valueStyle = {
+    color: "#212529"
+  };
+
   return (
-    <div className="order-details-page">
-      <div className="order-details-card">
-        <h1>Order Details</h1>
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <h2>Order Details: {order._id}</h2>
+        <button className="add-btn" onClick={() => navigate(-1)} style={{ marginBottom: 0 }}>
+          Back to Orders
+        </button>
+      </div>
 
-        {/* USER DETAILS */}
-        <div className="details-section">
-          <h2>User Details</h2>
-
-          <div className="detail-row">
-            <span className="label">Name</span>
-            <span className="value">{order.userId ? order.userId.name : "Unknown User"}</span>
-          </div>
-
-          <div className="detail-row">
-            <span className="label">Email</span>
-            <span className="value">{order.userId ? order.userId.email : "N/A"}</span>
-          </div>
+      <div style={sectionStyle}>
+        <h3 style={{ marginBottom: "15px", borderBottom: "2px solid #e9ecef", paddingBottom: "10px", color: "#343a40" }}>User Details</h3>
+        <div style={rowStyle}>
+          <span style={labelStyle}>Name</span>
+          <span style={valueStyle}>{order.userId ? order.userId.name : "Unknown User"}</span>
         </div>
-
-        {/* ORDER SUMMARY */}
-        <div className="details-section">
-          <h2>Order Summary</h2>
-
-          <div className="detail-row">
-            <span className="label">Order Date</span>
-            <span className="value">{new Date(order.createdAt).toLocaleString()}</span>
-          </div>
-
-          <div className="detail-row">
-            <span className="label">Total Price</span>
-            <span className="value">₹{order.totalPrice}</span>
-          </div>
+        <div style={rowStyle}>
+          <span style={labelStyle}>Email</span>
+          <span style={valueStyle}>{order.userId ? order.userId.email : "N/A"}</span>
         </div>
+      </div>
 
-        {/* PRODUCT DETAILS */}
-        <div className="details-section">
-          <h2>Product Details</h2>
+      <div style={sectionStyle}>
+        <h3 style={{ marginBottom: "15px", borderBottom: "2px solid #e9ecef", paddingBottom: "10px", color: "#343a40" }}>Order Summary</h3>
+        <div style={rowStyle}>
+          <span style={labelStyle}>Order Date</span>
+          <span style={valueStyle}>{new Date(order.createdAt).toLocaleString()}</span>
+        </div>
+        <div style={rowStyle}>
+          <span style={labelStyle}>Total Price</span>
+          <span style={{ fontWeight: "bold", color: "#28a745" }}>₹{order.totalPrice}</span>
+        </div>
+      </div>
 
-          {order.productId ? (
-            <div className="product-item-card" style={{ marginBottom: "1rem", paddingBottom: "1rem" }}>
-              <div className="detail-row">
-                <span className="label">Product Name</span>
-                <span className="value">{order.productId.title}</span>
-              </div>
-              <div className="detail-row">
-                <span className="label">Category</span>
-                <span className="value">{order.productId.category || "N/A"}</span>
-              </div>
-              <div className="detail-row">
-                <span className="label">Quantity</span>
-                <span className="value">{order.quantity}</span>
-              </div>
-              <div className="detail-row">
-                <span className="label">Price per unit</span>
-                <span className="value">₹{order.productId.price}</span>
-              </div>
+      <div style={sectionStyle}>
+        <h3 style={{ marginBottom: "15px", borderBottom: "2px solid #e9ecef", paddingBottom: "10px", color: "#343a40" }}>Product Details</h3>
+        {order.productId ? (
+          <div>
+            <div style={rowStyle}>
+              <span style={labelStyle}>Product Name</span>
+              <span style={valueStyle}>{order.productId.title}</span>
             </div>
-          ) : (
-            <p>No product details available.</p>
-          )}
-        </div>
+            <div style={rowStyle}>
+              <span style={labelStyle}>Category</span>
+              <span style={valueStyle}>{order.productId.category || "N/A"}</span>
+            </div>
+            <div style={rowStyle}>
+              <span style={labelStyle}>Quantity</span>
+              <span style={valueStyle}>{order.quantity}</span>
+            </div>
+            <div style={rowStyle}>
+              <span style={labelStyle}>Price per unit</span>
+              <span style={valueStyle}>₹{order.productId.price}</span>
+            </div>
+          </div>
+        ) : (
+          <p>No product details available.</p>
+        )}
       </div>
     </div>
   );

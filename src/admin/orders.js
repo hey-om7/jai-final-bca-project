@@ -54,36 +54,37 @@ export default function Orders() {
   }
 
   return (
-    <div className="orders-page">
-      <h1 className="orders-title">Orders</h1>
-
-      <div className="orders-container">
-        {orders.length === 0 ? (
-          <p>No orders found.</p>
-        ) : (
-          orders.map((order) => (
-            <NavLink
-              key={order._id}
-              to={`/orderdetails?id=${order._id}`}
-              className="order-link"
-            >
-              <div className="order-card">
-                <h2>Order for {order.userId ? order.userId.name : "Unknown User"}</h2>
-                <p>
-                  Date of Order:{" "}
-                  <span>{new Date(order.createdAt).toLocaleDateString()}</span>
-                </p>
-                <p>
-                  Product: <span>{order.productId ? order.productId.title : "Unknown Product"}</span>
-                </p>
-                <p>
-                  Total Price: <span>₹{order.totalPrice}</span>
-                </p>
-              </div>
-            </NavLink>
-          ))
-        )}
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2>Orders</h2>
       </div>
+
+      {orders.length === 0 ? (
+        <p>No orders found.</p>
+      ) : (
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>User Name</th>
+              <th>Product</th>
+              <th>Date</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <tr key={order._id}>
+                <td>{order._id}</td>
+                <td>{order.userId ? order.userId.name : "Unknown User"}</td>
+                <td>{order.productId ? order.productId.title : "Unknown Product"}</td>
+                <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+                <td>₹{order.totalPrice}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
