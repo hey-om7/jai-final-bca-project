@@ -6,6 +6,10 @@ export function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [addressLine, setAddressLine] = useState("");
+    const [city, setCity] = useState("");
+    const [pincode, setPincode] = useState("");
+    const [country, setCountry] = useState("");
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
@@ -16,7 +20,7 @@ export function Register() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ name, email, password, addressLine, city, pincode, country }),
             });
 
             const data = await response.json();
@@ -65,6 +69,46 @@ export function Register() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter password"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Address Line</label>
+                        <input
+                            type="text"
+                            value={addressLine}
+                            onChange={(e) => setAddressLine(e.target.value)}
+                            placeholder="Enter Address (Street/House No)"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>City</label>
+                        <input
+                            type="text"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            placeholder="Enter city"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Pincode</label>
+                        <input
+                            type="text"
+                            value={pincode}
+                            onChange={(e) => setPincode(e.target.value)}
+                            placeholder="Enter postal/pincode"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Country</label>
+                        <input
+                            type="text"
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                            placeholder="Enter country"
                             required
                         />
                     </div>

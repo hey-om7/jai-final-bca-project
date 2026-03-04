@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 router.post('/', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, addressLine, city, pincode, country } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -50,6 +50,18 @@ router.post('/', async (req, res) => {
     });
 
     if (user) {
+        // Create Address table entry
+        const Address = require('../models/Address');
+        if (addressLine && city && pincode && country) {
+            await Address.create({
+                user: user._id,
+                addressLine,
+                city,
+                pincode,
+                country
+            });
+        }
+
         res.status(201).json({
             _id: user._id,
             name: user.name,
