@@ -22,11 +22,11 @@ export function ContactUs() {
                         <p>
                             For general inquiries and support:
                         </p>
-                        <a href="mailto:support@ambarkarindustries.com" className="contact-link">
-                            support@ambarkarindustries.com
+                        <a href="mailto:jambarkar1@gmail.com" className="contact-link">
+                            jambarkar1@gmail.com
                         </a>
                         <p className="secondary-text">
-                            For orders: <a href="mailto:orders@ambarkarindustries.com">orders@ambarkarindustries.com</a>
+                            <b>For orders: <a href="mailto:jambarkar1@gmail.com">jambarkar1@gmail.com</a></b>
                         </p>
                     </div>
 
@@ -39,8 +39,8 @@ export function ContactUs() {
                         <p>
                             Monday - Friday, 9am - 6pm EST
                         </p>
-                        <a href="tel:+919876543210" className="contact-link">
-                            +91 98765 43210
+                        <a href="tel:+919850680630" className="contact-link">
+                            +91 98506 80630
                         </a>
                     </div>
 
@@ -51,11 +51,11 @@ export function ContactUs() {
                         </div>
                         <h3>Visit Us</h3>
                         <p>
-                            Ambarkar Industries HQ
+                            Ambarkar Industries
                         </p>
                         <p className="address-text">
-                            123 Textile Avenue, Cotton City<br />
-                            Mumbai, Maharashtra 400001
+                            Akkalkot Road<br />
+                            Solapur, Maharashtra 413001
                         </p>
                     </div>
                 </div>

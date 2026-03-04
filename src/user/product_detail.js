@@ -43,41 +43,16 @@ function ProductDetail() {
   // for now using the main image and placeholders or cloning the main image
   const images = [product.image, product.image, product.image];
 
-  const handleBuyNow = async () => {
-    try {
-      const userInfoRaw = localStorage.getItem("userInfo");
-      const userInfo = userInfoRaw ? JSON.parse(userInfoRaw) : null;
+  const handleBuyNow = () => {
+    const userInfoRaw = localStorage.getItem("userInfo");
+    const userInfo = userInfoRaw ? JSON.parse(userInfoRaw) : null;
 
-      if (!userInfo || !userInfo.token) {
-        alert("You must be logged in to place an order.");
-        return;
-      }
-
-      const orderData = {
-        productId: product._id,
-        quantity: 1,
-        totalPrice: product.price
-      };
-
-      const response = await fetch('http://localhost:5001/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${userInfo.token}`
-        },
-        body: JSON.stringify(orderData),
-      });
-
-      if (response.ok) {
-        navigate("/order-completed");
-      } else {
-        const errorData = await response.json();
-        alert(`Failed to place order: ${errorData.message}`);
-      }
-    } catch (error) {
-      console.error("Error placing order:", error);
-      alert("Error placing order");
+    if (!userInfo || !userInfo.token) {
+      alert("You must be logged in to place an order.");
+      return;
     }
+
+    navigate("/checkout", { state: { product } });
   };
 
   const next = () => setIndex((i) => (i + 1) % images.length);

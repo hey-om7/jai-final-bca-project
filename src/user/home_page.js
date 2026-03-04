@@ -60,7 +60,7 @@ export function HomePage() {
               <li><FaStar className="star-icon" /> Durable & Long-lasting</li>
             </ul>
 
-            <Link to="/products" className="secondary-btn">View All Products</Link>
+            <Link to="/categories" className="secondary-btn">View All Products</Link>
           </div>
           <div className="image-content">
             <img src="/product_stack.png" alt="Premium Towel Stack" />

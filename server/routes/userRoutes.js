@@ -75,6 +75,7 @@ router.post('/', async (req, res) => {
 });
 
 const { protect, admin } = require('../middleware/authMiddleware');
+const Address = require('../models/Address');
 
 // @desc    Get all users
 // @route   GET /api/users
@@ -82,6 +83,18 @@ const { protect, admin } = require('../middleware/authMiddleware');
 router.get('/', protect, admin, async (req, res) => {
     const users = await User.find({});
     res.json(users);
+});
+
+// @desc    Get the logged-in user's address
+// @route   GET /api/users/address
+// @access  Private
+router.get('/address', protect, async (req, res) => {
+    const address = await Address.findOne({ user: req.user._id });
+    if (address) {
+        res.json(address);
+    } else {
+        res.status(404).json({ message: 'No address found for this user' });
+    }
 });
 
 module.exports = router;
