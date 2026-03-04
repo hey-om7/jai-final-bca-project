@@ -69,6 +69,7 @@ export default function Orders() {
               <th>Order ID</th>
               <th>User Name</th>
               <th>Product</th>
+              <th>Quantity</th>
               <th>Date</th>
               <th>Total Price</th>
             </tr>
@@ -79,6 +80,7 @@ export default function Orders() {
                 <td>{order._id}</td>
                 <td>{order.userId ? order.userId.name : "Unknown User"}</td>
                 <td>{order.productId ? order.productId.title : "Unknown Product"}</td>
+                <td>{order.quantity}</td>
                 <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td>₹{order.totalPrice}</td>
               </tr>

@@ -9,6 +9,7 @@ export default function Checkout() {
     const [address, setAddress] = useState(null);
     const [loadingAddress, setLoadingAddress] = useState(true);
     const [placing, setPlacing] = useState(false);
+    const [quantity, setQuantity] = useState(1);
 
     // If user lands here directly without product data, redirect away
     useEffect(() => {
@@ -51,10 +52,11 @@ export default function Checkout() {
             const userInfoRaw = localStorage.getItem('userInfo');
             const userInfo = userInfoRaw ? JSON.parse(userInfoRaw) : null;
 
+            const totalPrice = quantity * state.product.price;
             const orderData = {
                 productId: state.product._id,
-                quantity: 1,
-                totalPrice: state.product.price,
+                quantity,
+                totalPrice,
             };
 
             const response = await fetch('http://localhost:5001/api/orders', {
@@ -100,11 +102,21 @@ export default function Checkout() {
                         </div>
                         <div className="checkout-row">
                             <span>Quantity</span>
-                            <span>1</span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                <button
+                                    onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                                    style={{ width: '28px', height: '28px', border: '1px solid #ddd', borderRadius: '50%', background: '#f5f5f5', cursor: 'pointer', fontWeight: '700', fontSize: '1rem', lineHeight: 1 }}
+                                >−</button>
+                                <span style={{ fontWeight: '600', minWidth: '20px', textAlign: 'center' }}>{quantity}</span>
+                                <button
+                                    onClick={() => setQuantity(q => q + 1)}
+                                    style={{ width: '28px', height: '28px', border: '1px solid #ddd', borderRadius: '50%', background: '#f5f5f5', cursor: 'pointer', fontWeight: '700', fontSize: '1rem', lineHeight: 1 }}
+                                >+</button>
+                            </div>
                         </div>
                         <div className="checkout-row checkout-total">
                             <span>Total</span>
-                            <span>₹{product?.price}</span>
+                            <span>₹{product ? product.price * quantity : 0}</span>
                         </div>
                     </div>
 
