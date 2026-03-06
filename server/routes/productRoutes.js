@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 // @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const product = await Product.findOne({ id: req.params.id });
+        const product = await Product.findById(req.params.id);
         if (product) {
             res.json(product);
         } else {
@@ -59,7 +59,7 @@ router.delete('/:id', protect, admin, async (req, res) => {
 router.post('/', protect, admin, async (req, res) => {
     const { id, title, price, image, category, description, categoryId } = req.body;
 
-    const productExists = await Product.findOne({ id });
+    const productExists = await Product.findById(id);
 
     if (productExists) {
         res.status(400).json({ message: 'Product ID already exists' });
@@ -67,7 +67,7 @@ router.post('/', protect, admin, async (req, res) => {
     }
 
     const product = new Product({
-        id,
+        _id: id,
         title,
         price,
         image,

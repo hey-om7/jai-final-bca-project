@@ -13,7 +13,7 @@ connectDB();
 const products = [
     // 100% Cotton Products (Category 1)
     {
-        id: 101,
+        _id: 101,
         categoryId: 1,
         title: "Ruby Cotton Towel",
         price: 1999,
@@ -22,7 +22,7 @@ const products = [
         category: '100% Cotton'
     },
     {
-        id: 102,
+        _id: 102,
         categoryId: 1,
         title: "Emerald Cotton Towel",
         price: 1899,
@@ -32,7 +32,7 @@ const products = [
 
     },
     {
-        id: 103,
+        _id: 103,
         categoryId: 1,
         title: "King Cotton Towel",
         price: 1999,
@@ -43,7 +43,7 @@ const products = [
 
     // Filament Products (Category 2)
     {
-        id: 201,
+        _id: 201,
         categoryId: 2,
         title: "Obsidian Filament",
         price: 899,
@@ -52,7 +52,7 @@ const products = [
         category: 'Filament'
     },
     {
-        id: 202,
+        _id: 202,
         categoryId: 2,
         title: "Slate Filament",
         price: 799,
@@ -61,7 +61,7 @@ const products = [
         category: 'Filament'
     },
     {
-        id: 203,
+        _id: 203,
         categoryId: 2,
         title: "Coal Filament",
         price: 999,
@@ -72,7 +72,7 @@ const products = [
 
     // Mixed Cotton Products (Category 3)
     {
-        id: 301,
+        _id: 301,
         categoryId: 3,
         title: "Texture Blend Towel",
         price: 999,
@@ -81,7 +81,7 @@ const products = [
         category: 'Mixed Cotton'
     },
     {
-        id: 302,
+        _id: 302,
         categoryId: 3,
         title: "Waffle Weave Towel",
         price: 899,
@@ -90,7 +90,7 @@ const products = [
         category: 'Mixed Cotton'
     },
     {
-        id: 303,
+        _id: 303,
         categoryId: 3,
         title: "Herringbone Towel",
         price: 1499,
@@ -101,7 +101,7 @@ const products = [
 
     // Carbon Towels Products (Category 4)
     {
-        id: 401,
+        _id: 401,
         categoryId: 4,
         title: "Millionaire Towel",
         price: 1899,
@@ -110,7 +110,7 @@ const products = [
         category: 'Carbon Towels'
     },
     {
-        id: 402,
+        _id: 402,
         categoryId: 4,
         title: "Billionaire Towel",
         price: 1999,
@@ -119,7 +119,7 @@ const products = [
         category: 'Carbon Towels'
     },
     {
-        id: 403,
+        _id: 403,
         categoryId: 4,
         title: "Trillionaire Towel",
         price: 2999,
@@ -131,7 +131,7 @@ const products = [
 
 const importData = async () => {
     try {
-        await Product.deleteMany();
+        try { await Product.collection.drop(); } catch (e) { }
         await User.deleteMany();
         await Order.deleteMany();
 
@@ -154,7 +154,7 @@ const importData = async () => {
 
 const destroyData = async () => {
     try {
-        await Product.deleteMany();
+        try { await Product.collection.drop(); } catch (e) { }
         await User.deleteMany();
         await Order.deleteMany();
 

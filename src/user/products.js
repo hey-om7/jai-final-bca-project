@@ -50,8 +50,8 @@ function ProductCards() {
         {categoryProducts.length > 0 ? (
           categoryProducts.map((product) => (
             <Link
-              key={product.id}
-              to={`/category/${categoryId}/product/${product.id}`}
+              key={product._id}
+              to={`/category/${categoryId}/product/${product._id}`}
               className="remove_link"
             >
               <div className="product-card">
