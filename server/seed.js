@@ -45,28 +45,28 @@ const products = [
     {
         _id: 201,
         categoryId: 2,
-        title: "Obsidian Filament",
+        title: "Azure Filament",
         price: 899,
-        description: "A luxurious towel with a soft texture and high absorbency.",
-        image: '/obsidian_filament_towel_1772993629312.png',
+        description: "A luxurious light blue towel with a soft texture and high absorbency.",
+        image: '/azure_filament_towel_1772994066528.png',
         category: 'Filament'
     },
     {
         _id: 202,
         categoryId: 2,
-        title: "Slate Filament",
+        title: "Powder Filament",
         price: 799,
-        description: "A premium towel with a smooth texture and excellent absorbency.",
-        image: '/slate_filament_towel_1772993644335.png',
+        description: "A premium pale powder blue towel with a smooth texture and excellent absorbency.",
+        image: '/powder_filament_towel_1772994082480.png',
         category: 'Filament'
     },
     {
         _id: 203,
         categoryId: 2,
-        title: "Coal Filament",
+        title: "Sky Filament",
         price: 999,
-        description: "A premium towel with a luxurious feel and superior absorbency.",
-        image: '/coal_filament_towel_1772993660553.png',
+        description: "A premium sky blue towel with a luxurious feel and superior absorbency.",
+        image: '/sky_filament_towel_1772994099377.png',
         category: 'Filament'
     },
 
