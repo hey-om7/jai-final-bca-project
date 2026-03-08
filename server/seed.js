@@ -48,7 +48,7 @@ const products = [
         title: "Obsidian Filament",
         price: 899,
         description: "A luxurious towel with a soft texture and high absorbency.",
-        image: '/category_filament_1770900548571.png',
+        image: '/obsidian_filament_towel_1772993629312.png',
         category: 'Filament'
     },
     {
@@ -57,7 +57,7 @@ const products = [
         title: "Slate Filament",
         price: 799,
         description: "A premium towel with a smooth texture and excellent absorbency.",
-        image: '/category_filament_1770900548571.png',
+        image: '/slate_filament_towel_1772993644335.png',
         category: 'Filament'
     },
     {
@@ -66,7 +66,7 @@ const products = [
         title: "Coal Filament",
         price: 999,
         description: "A premium towel with a luxurious feel and superior absorbency.",
-        image: '/category_filament_1770900548571.png',
+        image: '/coal_filament_towel_1772993660553.png',
         category: 'Filament'
     },
 
@@ -77,7 +77,7 @@ const products = [
         title: "Texture Blend Towel",
         price: 999,
         description: "A premium towel with a soft texture and high absorbency.",
-        image: '/category_mixed_1770900596346.png',
+        image: '/texture_blend_towel_1772993685886.png',
         category: 'Mixed Cotton'
     },
     {
@@ -86,7 +86,7 @@ const products = [
         title: "Waffle Weave Towel",
         price: 899,
         description: "A luxurious towel with a smooth texture and excellent absorbency.",
-        image: '/category_mixed_1770900596346.png',
+        image: '/waffle_weave_towel_1772993702203.png',
         category: 'Mixed Cotton'
     },
     {
@@ -95,7 +95,7 @@ const products = [
         title: "Herringbone Towel",
         price: 1499,
         description: "A premium towel with a luxurious feel and superior absorbency.",
-        image: '/category_mixed_1770900596346.png',
+        image: '/herringbone_towel_1772993722425.png',
         category: 'Mixed Cotton'
     },
 
@@ -106,7 +106,7 @@ const products = [
         title: "Millionaire Towel",
         price: 1899,
         description: "Experience the perfect blend of softness and durability with our 100% cotton towel, designed to elevate your comfort and absorbency.",
-        image: '/category_carbon_1770900631300.png',
+        image: '/millionaire_towel_1772993750517.png',
         category: 'Carbon Towels'
     },
     {
@@ -115,7 +115,7 @@ const products = [
         title: "Billionaire Towel",
         price: 1999,
         description: "A luxurious towel with a soft texture and high absorbency.",
-        image: '/category_carbon_1770900631300.png',
+        image: '/billionaire_towel_1772993769293.png',
         category: 'Carbon Towels'
     },
     {
@@ -124,7 +124,7 @@ const products = [
         title: "Trillionaire Towel",
         price: 2999,
         description: "A premium towel with a luxurious feel and superior absorbency.",
-        image: '/category_carbon_1770900631300.png',
+        image: '/trillionaire_towel_1772993789927.png',
         category: 'Carbon Towels'
     }
 ];
