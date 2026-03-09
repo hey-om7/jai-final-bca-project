@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./admin.css";
 
 export function AdminDashboard() {
-    const [activeTab, setActiveTab] = useState("users");
+    const [activeTab, setActiveTab] = useState("products");
     const [editingProduct, setEditingProduct] = useState(null);
     const navigate = useNavigate();
 
@@ -23,12 +23,12 @@ export function AdminDashboard() {
         <div className="admin-dashboard">
             <div className="admin-sidebar">
                 <h2>Admin Panel</h2>
-                <button
+                {/* <button
                     className={activeTab === "users" ? "active" : ""}
                     onClick={() => { setActiveTab("users"); setEditingProduct(null); }}
                 >
                     Users
-                </button>
+                </button> */}
                 <button
                     className={activeTab === "products" ? "active" : ""}
                     onClick={() => { setActiveTab("products"); setEditingProduct(null); }}
