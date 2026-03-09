@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { categories } from "../user/data";
 
 export function ProductEdit({ onCancel }) {
     const [title, setTitle] = useState("");
@@ -8,6 +9,18 @@ export function ProductEdit({ onCancel }) {
     const [category, setCategory] = useState("100% Cotton");
     const [categoryId, setCategoryId] = useState(1);
     const [customId, setCustomId] = useState(""); // For the custom 'id' field
+
+    const handleCategoryIdChange = (e) => {
+        const newId = Number(e.target.value);
+        setCategoryId(newId);
+
+        const selectedCat = categories.find(cat => cat.id === newId);
+        if (selectedCat) {
+            setCategory(selectedCat.title);
+        } else {
+            setCategory("Unknown Category");
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -66,7 +79,7 @@ export function ProductEdit({ onCancel }) {
                 </div>
                 <div className="form-group">
                     <label>Category (1-4)</label>
-                    <input type="number" value={categoryId} onChange={(e) => setCategoryId(e.target.value)} required />
+                    <input type="number" value={categoryId} onChange={handleCategoryIdChange} required />
                 </div>
 
                 <button type="submit" className="login-btn">Create Product</button>
